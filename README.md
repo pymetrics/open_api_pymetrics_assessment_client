@@ -22,67 +22,82 @@ Python 2.7 and 3.4+
 ## Installation & Usage
 ### pip install
 
-If the python package is hosted on a repository, you can install directly using:
 
 ```sh
-pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
-```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git`)
-
-Then import the package:
-```python
-import openapi_client
+pip install python_pymetrics_assessment_client
 ```
 
-### Setuptools
 
-Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
 
-```sh
-python setup.py install --user
-```
-(or `sudo python setup.py install` to install the package for all users)
+## Usage
 
-Then import the package:
-```python
-import openapi_client
-```
+A full set of examples can be found in the [pytho_pymetrics_assessments_client examples directory](https://github.com/pymetrics/python_pymetrics_assessment_client/tree/main/openapi_client/examples).
 
-## Getting Started
+To get started, please request Client ID, Client Secret and API Key from pymetrics.
 
-Please follow the [installation procedure](#installation--usage) and then run the following:
+First, create a client for staging environment:
 
 ```python
-from __future__ import print_function
-
-import time
+from openapi_client.api import default_api
+from openapi_client.models.mercury_candidate import MercuryCandidate
+from openapi_client.models.o_auth_request import OAuthRequest
+from openapi_client.models.o_auth_response import OAuthResponse
+from openapi_client.models.order_request import OrderRequest
+from openapi_client.models.order_create_response import OrderCreateResponse
+from openapi_client.configuration import Configuration
 import openapi_client
-from openapi_client.rest import ApiException
-from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "http://localhost"
-)
+    client_id = INSERT_YOUR_CLIENT_ID_HERE
+    client_secret = INSERT_YOUR_CLIENT_SECRET_HERE
 
+    configuration = Configuration(host="https://staging.api.pymetrics.com")
+    # Enter a context with an instance of the API client
+    with openapi_client.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = default_api.DefaultApi(api_client)
+        # Get an access token by hitting auth endpiont
+        o_auth_request = OAuthRequest(
+            client_id=client_id,
+            client_secret=client_secret,
+            grant_type="client_credentials"
+        )
+        try:
+            oauth_response: OAuthResponse = api_instance.mercury_o_auth(
+                o_auth_request=o_auth_request)
 
+            x_api_key = INSERT_YOUR_API_KEY_HERE
+            
+            # pass this as authorization to any Mercury endpoint
+            auth = f"Bearer {oauth_response.access_token}"
+            
+            # construct Create Assessment Order Request
+            candidate = MercuryCandidate(
+                email="test978@example.com",
+                first_name="Test",
+                last_name="Example",
+                external_id="test978_example"
+            )
 
-# Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = openapi_client.DefaultApi(api_client)
-    authorization = 'authorization_example' # str | Standard Bearer token request, from `Generate OAuth Token`. Formatted `Bearer {token}` (optional)
-x_api_key = 'x_api_key_example' # str | Mandatory API Key that pymetrics will provide (optional)
-order_request = openapi_client.OrderRequest() # OrderRequest | Candidate, assessment, and job application details (optional)
+            meta_data = {"job_name": "ceo"}
+            order_request = OrderRequest(
+                candidate=candidate,
+                assessment_id=INSERT_YOUR_ASSESSMENT_ID_HERE,
+                application_id="test_example_978",
+                metadata=meta_data
+            )
+            
+            # create an assessment order by hitting create order endpoint
+            create_order_response: OrderCreateResponse = api_instance.mercury_create_order(
+                authorization=auth,
+                x_api_key=x_api_key,
+                order_request=order_request
+            )
 
-    try:
-        # Create Assessment Order
-        api_response = api_instance.mercury_create_order(authorization=authorization, x_api_key=x_api_key, order_request=order_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling DefaultApi->mercury_create_order: %s\n" % e)
-    
+            print(f"Successfully created order: {create_order_response}")
+
+        except openapi_client.ApiException as e:
+            # catch any exception incurred by api endpoinnts
+            print(f"Exception when calling mercury api {e}")
 ```
 
 ## Documentation for API Endpoints
@@ -118,12 +133,8 @@ Class | Method | HTTP request | Description
  - [PontemOrderStatuses](docs/PontemOrderStatuses.md)
 
 
-## Documentation For Authorization
-
-You will need to call 
 
 ## Author
-
-
+Michelle Tsai <min.tsai@pymetrics.com>
 
 
