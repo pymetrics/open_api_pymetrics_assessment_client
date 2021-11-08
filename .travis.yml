@@ -1,0 +1,18 @@
+---
+language: generic
+
+env:
+  global:
+    - S3_SCRIPTS_BUCKET="pymetrics-developer-resources.s3.amazonaws.com"
+
+# download shared CI scripts
+before_script:
+  - wget https://pymetrics-ci-cd.s3.amazonaws.com/scripts/ci_scripts.tar.gz
+  - tar xvfz ci_scripts.tar.gz
+
+jobs:
+  include:
+    - stage: "build & test"
+      script: 
+        - make build
+        - make test
