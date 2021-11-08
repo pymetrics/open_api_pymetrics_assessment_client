@@ -134,7 +134,3 @@ Class | Method | HTTP request | Description
 
 
 
-## Author
-Michelle Tsai <min.tsai@pymetrics.com>
-
-
