@@ -46,7 +46,7 @@ class TestOrderRequest(unittest.TestCase):
                 application_id = '', 
                 requisition_id = '', 
                 requisition_title = '', 
-                metadata = openapi_client.models.metadata.Metadata(), 
+                metadata = {},
                 candidate_redirect_url = '0'
             )
         else :

@@ -56,7 +56,7 @@ class TestListOrdersResponse(unittest.TestCase):
                         ats_type = 'adp', 
                         requisition_id = '', 
                         requisition_title = '', 
-                        metadata = openapi_client.models.metadata.Metadata(), 
+                        metadata={},
                         recruiter_report = '0', 
                         results = [
                             openapi_client.models.mercury_result.MercuryResult(
@@ -100,7 +100,7 @@ class TestListOrdersResponse(unittest.TestCase):
                         ats_type = 'adp', 
                         requisition_id = '', 
                         requisition_title = '', 
-                        metadata = openapi_client.models.metadata.Metadata(), 
+                        metadata = {},
                         recruiter_report = '0', 
                         results = [
                             openapi_client.models.mercury_result.MercuryResult(
