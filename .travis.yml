@@ -1,18 +1,17 @@
----
-language: generic
-
-env:
-  global:
-    - S3_SCRIPTS_BUCKET="pymetrics-developer-resources.s3.amazonaws.com"
-
-# download shared CI scripts
-before_script:
-  - wget https://pymetrics-ci-cd.s3.amazonaws.com/scripts/ci_scripts.tar.gz
-  - tar xvfz ci_scripts.tar.gz
-
-jobs:
-  include:
-    - stage: "build & test"
-      script: 
-        - make build
-        - make test
+# ref: https://docs.travis-ci.com/user/languages/python
+language: python
+python:
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+  - "3.7"
+  - "3.8"
+# command to install dependencies
+install:
+  - "pip install -r requirements.txt"
+  - "pip install -r test-requirements.txt"
+# command to run tests
+script: pytest --cov=openapi_client
