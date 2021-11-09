@@ -1,4 +1,4 @@
-# openapi-client
+# python-pymetrics-assessment-client
 ### This is pymetrics's public API for assessments, usually as part of a job application workflow.
 The typical use case for this is to support an externally initiated assessment for a candidate job application.
 This is often done \"inline\" with the candidate's application, or asynchronously after the candidate submits their application.
@@ -24,18 +24,18 @@ Python 2.7 and 3.4+
 
 
 ```sh
-pip install python_pymetrics_assessment_client
+pip install python-pymetrics-assessment-client
 ```
 
 
 
 ## Usage
 
-A full set of examples can be found in the [pytho_pymetrics_assessments_client examples directory](https://github.com/pymetrics/python_pymetrics_assessment_client/tree/main/openapi_client/examples).
+A full set of examples can be found in the [python_pymetrics_assessments_client examples directory](https://github.com/pymetrics/python_pymetrics_assessment_client/tree/main/openapi_client/examples).
 
 To get started, please request Client ID, Client Secret and API Key from pymetrics.
 
-First, create a client for staging environment:
+Here is an example of retrieving an OAuth token and create an assessment order:
 
 ```python
 from openapi_client.api import default_api
@@ -103,6 +103,7 @@ import openapi_client
 ## Documentation for API Endpoints
 
 All URIs are relative to *http://staging.api.pymetrics.com* or *http://api.pymetrics.com* 
+To access links below, please refer to README in [Documentation for API Endpoints](https://github.com/pymetrics/python_pymetrics_assessment_client/#documentation-for-api-endpoints)
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -114,6 +115,7 @@ Class | Method | HTTP request | Description
 
 
 ## Documentation For Models
+To access links below, please refer to README in [Documentation for Models](https://github.com/pymetrics/python_pymetrics_assessment_client/#documentation-for-models)
 
  - [AssessmentType](docs/AssessmentType.md)
  - [AtsType](docs/AtsType.md)
