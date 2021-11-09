@@ -102,7 +102,7 @@ import openapi_client
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://staging.api.pymetrics.com* or *http://api.pymetrics.com* 
+All URIs are relative to *https://staging.api.pymetrics.com* or *https://api.pymetrics.com* 
 
 To access links below, please refer to README in [Documentation for API Endpoints](https://github.com/pymetrics/python_pymetrics_assessment_client/#documentation-for-api-endpoints)
 
