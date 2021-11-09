@@ -35,7 +35,7 @@ A full set of examples can be found in the [python_pymetrics_assessments_client 
 
 To get started, please request Client ID, Client Secret and API Key from pymetrics.
 
-Here is an example of retrieving an OAuth token and create an assessment order:
+First, create a client for staging environment:
 
 ```python
 from openapi_client.api import default_api
@@ -104,36 +104,13 @@ import openapi_client
 
 All URIs are relative to *http://staging.api.pymetrics.com* or *http://api.pymetrics.com* 
 
-To access links below, please refer to README in [Documentation for API Endpoints](https://github.com/pymetrics/python_pymetrics_assessment_client/#documentation-for-api-endpoints)
-
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**mercury_create_order**](docs/DefaultApi.md#mercury_create_order) | **POST** /mercury/order | Create Assessment Order
-*DefaultApi* | [**mercury_get_config**](docs/DefaultApi.md#mercury_get_config) | **GET** /mercury/configuration | Get Assessment Configurations
-*DefaultApi* | [**mercury_list_orders**](docs/DefaultApi.md#mercury_list_orders) | **POST** /mercury/orders | List Assessment Orders
-*DefaultApi* | [**mercury_o_auth**](docs/DefaultApi.md#mercury_o_auth) | **POST** /mercury/oauth/token | Generate OAuth Token
-*DefaultApi* | [**mercury_retrieve_order**](docs/DefaultApi.md#mercury_retrieve_order) | **GET** /mercury/getOrder/{uuid} | Get Assessment Order
-
-
-## Documentation For Models
-To access links below, please refer to README in [Documentation for Models](https://github.com/pymetrics/python_pymetrics_assessment_client/#documentation-for-models)
-
- - [AssessmentType](docs/AssessmentType.md)
- - [AtsType](docs/AtsType.md)
- - [Configuration](docs/Configuration.md)
- - [ErrorResponse](docs/ErrorResponse.md)
- - [ListOrdersRequest](docs/ListOrdersRequest.md)
- - [ListOrdersResponse](docs/ListOrdersResponse.md)
- - [MercuryAssessment](docs/MercuryAssessment.md)
- - [MercuryAssessmentOrder](docs/MercuryAssessmentOrder.md)
- - [MercuryCandidate](docs/MercuryCandidate.md)
- - [MercuryReport](docs/MercuryReport.md)
- - [MercuryResult](docs/MercuryResult.md)
- - [OAuthRequest](docs/OAuthRequest.md)
- - [OAuthResponse](docs/OAuthResponse.md)
- - [OrderCreateResponse](docs/OrderCreateResponse.md)
- - [OrderRequest](docs/OrderRequest.md)
- - [PontemOrderStatuses](docs/PontemOrderStatuses.md)
+*DefaultApi* | mercury_create_order | **POST** /mercury/order | Create Assessment Order
+*DefaultApi* | mercury_get_config | **GET** /mercury/configuration | Get Assessment Configurations
+*DefaultApi* | mercury_list_orders | **POST** /mercury/orders | List Assessment Orders
+*DefaultApi* | mercury_o_auth | **POST** /mercury/oauth/token | Generate OAuth Token
+*DefaultApi* | mercury_retrieve_order | **GET** /mercury/getOrder/{uuid} | Get Assessment Order
 
 
 
