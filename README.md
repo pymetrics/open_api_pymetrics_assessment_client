@@ -106,11 +106,6 @@ Class | Method | HTTP request | Description
  - [PontemReportTypes](docs/PontemReportTypes.md)
 
 
-## Documentation For Authorization
-
- All endpoints do not require authorization.
-
-
 
 
 
