@@ -4,15 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**mercury_create_order**](DefaultApi.md#mercury_create_order) | **POST** /mercury/order | Create Assessment Order
-[**mercury_get_config**](DefaultApi.md#mercury_get_config) | **GET** /mercury/configuration | Get Assessment Configurations
-[**mercury_list_orders**](DefaultApi.md#mercury_list_orders) | **POST** /mercury/orders | List Assessment Orders
-[**mercury_o_auth**](DefaultApi.md#mercury_o_auth) | **POST** /mercury/oauth/token | Generate OAuth Token
-[**mercury_retrieve_order**](DefaultApi.md#mercury_retrieve_order) | **GET** /mercury/getOrder/{uuid} | Get Assessment Order
+[**mercury_create_order_v2**](DefaultApi.md#mercury_create_order_v2) | **POST** /mercury/v2/orders | Create Assessment Order
+[**mercury_get_config_v2**](DefaultApi.md#mercury_get_config_v2) | **GET** /mercury/v2/assessments | Get Assessment Configurations
+[**mercury_list_orders_v2**](DefaultApi.md#mercury_list_orders_v2) | **GET** /mercury/v2/orders | List Assessment Orders
+[**mercury_o_auth_v2**](DefaultApi.md#mercury_o_auth_v2) | **POST** /mercury/v2/oauth/token | Generate OAuth Token
+[**mercury_retrieve_factor_content**](DefaultApi.md#mercury_retrieve_factor_content) | **GET** /mercury/v2/factorContent/{uuid} | Get Factor Content
+[**mercury_retrieve_order_v2**](DefaultApi.md#mercury_retrieve_order_v2) | **GET** /mercury/v2/orders/{uuid} | Get Assessment Order
 
 
-# **mercury_create_order**
-> OrderCreateResponse mercury_create_order(authorization=authorization, x_api_key=x_api_key, order_request=order_request)
+# **mercury_create_order_v2**
+> OrderCreateResponse mercury_create_order_v2(authorization=authorization, x_api_key=x_api_key, order_request=order_request)
 
 Create Assessment Order
 
@@ -43,10 +44,10 @@ order_request = openapi_client.OrderRequest() # OrderRequest | Candidate, assess
 
     try:
         # Create Assessment Order
-        api_response = api_instance.mercury_create_order(authorization=authorization, x_api_key=x_api_key, order_request=order_request)
+        api_response = api_instance.mercury_create_order_v2(authorization=authorization, x_api_key=x_api_key, order_request=order_request)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling DefaultApi->mercury_create_order: %s\n" % e)
+        print("Exception when calling DefaultApi->mercury_create_order_v2: %s\n" % e)
 ```
 
 ### Parameters
@@ -81,8 +82,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **mercury_get_config**
-> Configuration mercury_get_config(authorization=authorization, x_api_key=x_api_key)
+# **mercury_get_config_v2**
+> Configuration mercury_get_config_v2(authorization=authorization, x_api_key=x_api_key)
 
 Get Assessment Configurations
 
@@ -112,10 +113,10 @@ x_api_key = 'x_api_key_example' # str | Mandatory API Key that pymetrics will pr
 
     try:
         # Get Assessment Configurations
-        api_response = api_instance.mercury_get_config(authorization=authorization, x_api_key=x_api_key)
+        api_response = api_instance.mercury_get_config_v2(authorization=authorization, x_api_key=x_api_key)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling DefaultApi->mercury_get_config: %s\n" % e)
+        print("Exception when calling DefaultApi->mercury_get_config_v2: %s\n" % e)
 ```
 
 ### Parameters
@@ -147,8 +148,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **mercury_list_orders**
-> ListOrdersResponse mercury_list_orders(authorization=authorization, x_api_key=x_api_key, list_orders_request=list_orders_request)
+# **mercury_list_orders_v2**
+> ListOrdersResponse mercury_list_orders_v2(job_application_id=job_application_id, candidate_id=candidate_id, authorization=authorization, x_api_key=x_api_key)
 
 List Assessment Orders
 
@@ -173,25 +174,27 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.DefaultApi(api_client)
-    authorization = 'authorization_example' # str | Standard Bearer token request, from `Generate OAuth Token`. Formatted `Bearer {token}` (optional)
+    job_application_id = 'job_application_id_example' # str | Job application ID by which to optionally filter on (optional)
+candidate_id = 'candidate_id_example' # str | Candidate ID by which to optionally filter on (optional)
+authorization = 'authorization_example' # str | Standard Bearer token request, from `Generate OAuth Token`. Formatted `Bearer {token}` (optional)
 x_api_key = 'x_api_key_example' # str | Mandatory API Key that pymetrics will provide (optional)
-list_orders_request = openapi_client.ListOrdersRequest() # ListOrdersRequest | Job application ID or candidate ID (optional)
 
     try:
         # List Assessment Orders
-        api_response = api_instance.mercury_list_orders(authorization=authorization, x_api_key=x_api_key, list_orders_request=list_orders_request)
+        api_response = api_instance.mercury_list_orders_v2(job_application_id=job_application_id, candidate_id=candidate_id, authorization=authorization, x_api_key=x_api_key)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling DefaultApi->mercury_list_orders: %s\n" % e)
+        print("Exception when calling DefaultApi->mercury_list_orders_v2: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **job_application_id** | **str**| Job application ID by which to optionally filter on | [optional] 
+ **candidate_id** | **str**| Candidate ID by which to optionally filter on | [optional] 
  **authorization** | **str**| Standard Bearer token request, from &#x60;Generate OAuth Token&#x60;. Formatted &#x60;Bearer {token}&#x60; | [optional] 
  **x_api_key** | **str**| Mandatory API Key that pymetrics will provide | [optional] 
- **list_orders_request** | [**ListOrdersRequest**](ListOrdersRequest.md)| Job application ID or candidate ID | [optional] 
 
 ### Return type
 
@@ -203,7 +206,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -215,8 +218,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **mercury_o_auth**
-> OAuthResponse mercury_o_auth(o_auth_request=o_auth_request)
+# **mercury_o_auth_v2**
+> OAuthResponse mercury_o_auth_v2(o_auth_request=o_auth_request)
 
 Generate OAuth Token
 
@@ -245,10 +248,10 @@ with openapi_client.ApiClient() as api_client:
 
     try:
         # Generate OAuth Token
-        api_response = api_instance.mercury_o_auth(o_auth_request=o_auth_request)
+        api_response = api_instance.mercury_o_auth_v2(o_auth_request=o_auth_request)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling DefaultApi->mercury_o_auth: %s\n" % e)
+        print("Exception when calling DefaultApi->mercury_o_auth_v2: %s\n" % e)
 ```
 
 ### Parameters
@@ -280,8 +283,77 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **mercury_retrieve_order**
-> MercuryAssessmentOrder mercury_retrieve_order(uuid, report=report, authorization=authorization, x_api_key=x_api_key)
+# **mercury_retrieve_factor_content**
+> MercuryOrderFactorContent mercury_retrieve_factor_content(uuid, authorization=authorization, x_api_key=x_api_key)
+
+Get Factor Content
+
+Gets the factor content for an assessment order by its ID.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    uuid = 'uuid_example' # str | The Order ID value from creating the order.
+authorization = 'authorization_example' # str | Standard Bearer token request, from `Generate OAuth Token`. Formatted `Bearer {token}` (optional)
+x_api_key = 'x_api_key_example' # str | Mandatory API Key that pymetrics will provide (optional)
+
+    try:
+        # Get Factor Content
+        api_response = api_instance.mercury_retrieve_factor_content(uuid, authorization=authorization, x_api_key=x_api_key)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->mercury_retrieve_factor_content: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **str**| The Order ID value from creating the order. | 
+ **authorization** | **str**| Standard Bearer token request, from &#x60;Generate OAuth Token&#x60;. Formatted &#x60;Bearer {token}&#x60; | [optional] 
+ **x_api_key** | **str**| Mandatory API Key that pymetrics will provide | [optional] 
+
+### Return type
+
+[**MercuryOrderFactorContent**](MercuryOrderFactorContent.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Factor content for the requested order |  -  |
+**400** | Could not retrieve factor scores for order |  -  |
+**404** | Order ID not found |  -  |
+**500** | Server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **mercury_retrieve_order_v2**
+> MercuryAssessmentOrder mercury_retrieve_order_v2(uuid, report=report, authorization=authorization, x_api_key=x_api_key)
 
 Get Assessment Order
 
@@ -313,10 +385,10 @@ x_api_key = 'x_api_key_example' # str | Mandatory API Key that pymetrics will pr
 
     try:
         # Get Assessment Order
-        api_response = api_instance.mercury_retrieve_order(uuid, report=report, authorization=authorization, x_api_key=x_api_key)
+        api_response = api_instance.mercury_retrieve_order_v2(uuid, report=report, authorization=authorization, x_api_key=x_api_key)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling DefaultApi->mercury_retrieve_order: %s\n" % e)
+        print("Exception when calling DefaultApi->mercury_retrieve_order_v2: %s\n" % e)
 ```
 
 ### Parameters

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
-**invite_link** | **str** |  | 
+**invite_link** | **str** |  | [optional] 
 **status** | [**PontemOrderStatuses**](PontemOrderStatuses.md) |  | 
 **create_date** | **datetime** |  | 
 **candidate** | [**MercuryCandidate**](MercuryCandidate.md) |  | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **requisition_title** | **str** |  | [optional] 
 **metadata** | **object** |  | [optional] 
 **recruiter_report** | **str** |  | [optional] 
-**results** | [**list[MercuryResult]**](MercuryResult.md) |  | [optional] 
+**results** | [**list[MercuryResult]**](MercuryResult.md) | Returns the candidate&#39;s results to all assessments in the assessment group | [optional] 
 **reports** | [**list[MercuryReport]**](MercuryReport.md) |  | [optional] 
 **candidate_redirect_url** | **str** |  | [optional] 
 
