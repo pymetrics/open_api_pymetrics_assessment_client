@@ -12,7 +12,7 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "openapi-client"
+NAME = "pymetrics-soft-skills-sdk"
 VERSION = "1.0.0"
 # To install the library, run the following
 #
@@ -26,11 +26,11 @@ REQUIRES = ["urllib3 >= 1.25.3", "six >= 1.10", "python-dateutil"]
 setup(
     name=NAME,
     version=VERSION,
-    description="pymetrics Assessment API",
+    description="pymetrics API",
     author="OpenAPI Generator community",
     author_email="team@openapitools.org",
     url="",
-    keywords=["OpenAPI", "OpenAPI-Generator", "pymetrics Assessment API"],
+    keywords=["OpenAPI", "OpenAPI-Generator", "pymetrics API"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,

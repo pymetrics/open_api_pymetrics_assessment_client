@@ -1,4 +1,4 @@
-# openapi_client.DefaultApi
+# pymetrics_soft_skills_sdk.DefaultApi
 
 All URIs are relative to *http://localhost*
 
@@ -24,23 +24,23 @@ Creates an assessment order for a candidate. This represents the transaction for
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import pymetrics_soft_skills_sdk
+from pymetrics_soft_skills_sdk.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = pymetrics_soft_skills_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with pymetrics_soft_skills_sdk.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.DefaultApi(api_client)
+    api_instance = pymetrics_soft_skills_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Standard Bearer token request, from `Generate OAuth Token`. Formatted `Bearer {token}` (optional)
 x_api_key = 'x_api_key_example' # str | Mandatory API Key that pymetrics will provide (optional)
-order_request = openapi_client.OrderRequest() # OrderRequest | Candidate, assessment, and job application details (optional)
+order_request = pymetrics_soft_skills_sdk.OrderRequest() # OrderRequest | Candidate, assessment, and job application details (optional)
 
     try:
         # Create Assessment Order
@@ -94,20 +94,20 @@ Lists the assessment templates that are currently registered for your integratio
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import pymetrics_soft_skills_sdk
+from pymetrics_soft_skills_sdk.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = pymetrics_soft_skills_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with pymetrics_soft_skills_sdk.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.DefaultApi(api_client)
+    api_instance = pymetrics_soft_skills_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Standard Bearer token request, from `Generate OAuth Token`. Formatted `Bearer {token}` (optional)
 x_api_key = 'x_api_key_example' # str | Mandatory API Key that pymetrics will provide (optional)
 
@@ -160,20 +160,20 @@ Get a list of Assessment Orders by either job application ID and/or candidate ID
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import pymetrics_soft_skills_sdk
+from pymetrics_soft_skills_sdk.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = pymetrics_soft_skills_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with pymetrics_soft_skills_sdk.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.DefaultApi(api_client)
+    api_instance = pymetrics_soft_skills_sdk.DefaultApi(api_client)
     job_application_id = 'job_application_id_example' # str | Job application ID by which to optionally filter on (optional)
 candidate_id = 'candidate_id_example' # str | Candidate ID by which to optionally filter on (optional)
 authorization = 'authorization_example' # str | Standard Bearer token request, from `Generate OAuth Token`. Formatted `Bearer {token}` (optional)
@@ -230,21 +230,21 @@ The response's bearer token must be used in the `Authorization` header for any o
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import pymetrics_soft_skills_sdk
+from pymetrics_soft_skills_sdk.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = pymetrics_soft_skills_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with pymetrics_soft_skills_sdk.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.DefaultApi(api_client)
-    o_auth_request = openapi_client.OAuthRequest() # OAuthRequest | OAuth2 Client Credentials (optional)
+    api_instance = pymetrics_soft_skills_sdk.DefaultApi(api_client)
+    o_auth_request = pymetrics_soft_skills_sdk.OAuthRequest() # OAuthRequest | OAuth2 Client Credentials (optional)
 
     try:
         # Generate OAuth Token
@@ -295,20 +295,20 @@ Gets the factor content for an assessment order by its ID.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import pymetrics_soft_skills_sdk
+from pymetrics_soft_skills_sdk.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = pymetrics_soft_skills_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with pymetrics_soft_skills_sdk.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.DefaultApi(api_client)
+    api_instance = pymetrics_soft_skills_sdk.DefaultApi(api_client)
     uuid = 'uuid_example' # str | The Order ID value from creating the order.
 authorization = 'authorization_example' # str | Standard Bearer token request, from `Generate OAuth Token`. Formatted `Bearer {token}` (optional)
 x_api_key = 'x_api_key_example' # str | Mandatory API Key that pymetrics will provide (optional)
@@ -364,20 +364,20 @@ Get an existing order by ID. It will move from `Completed` to `Fulfilled` if the
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import pymetrics_soft_skills_sdk
+from pymetrics_soft_skills_sdk.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = pymetrics_soft_skills_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with pymetrics_soft_skills_sdk.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.DefaultApi(api_client)
+    api_instance = pymetrics_soft_skills_sdk.DefaultApi(api_client)
     uuid = 'uuid_example' # str | The Order ID value from creating the order. The create operation is idempotent, based on candidate.email, assessment_id, and application_id
 report = True # bool | Set to true to optionally force a report to be generated if one does not exist (optional)
 authorization = 'authorization_example' # str | Standard Bearer token request, from `Generate OAuth Token`. Formatted `Bearer {token}` (optional)
