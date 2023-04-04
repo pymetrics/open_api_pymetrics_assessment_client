@@ -18,8 +18,7 @@ import pprint
 import re  # noqa: F401
 import six
 
-from openapi_client.configuration import Configuration
-import openapi_client
+from pymetrics_soft_skills_sdk.configuration import Configuration
 
 
 class Configuration(object):
@@ -47,7 +46,7 @@ class Configuration(object):
     def __init__(self, assessments=None, local_vars_configuration=None):  # noqa: E501
         """Configuration - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
-            local_vars_configuration = openapi_client.configuration.Configuration.get_default_copy()
+            local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
         self._assessments = None

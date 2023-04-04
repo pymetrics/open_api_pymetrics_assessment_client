@@ -70,7 +70,8 @@ class TestOrderCreateResponse(unittest.TestCase):
                         ], 
                     reports = [
                         openapi_client.models.mercury_report.MercuryReport(
-                            download_url = '0', 
+                            download_url = '0',
+                            report_type="recruiter_report",
                             create_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                             modify_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                         ], 
@@ -113,7 +114,8 @@ class TestOrderCreateResponse(unittest.TestCase):
                         ], 
                     reports = [
                         openapi_client.models.mercury_report.MercuryReport(
-                            download_url = '0', 
+                            download_url = '0',
+                            report_type="recruiter_report",
                             create_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                             modify_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                         ], 

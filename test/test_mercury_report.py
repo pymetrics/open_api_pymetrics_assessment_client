@@ -38,13 +38,15 @@ class TestMercuryReport(unittest.TestCase):
             return MercuryReport(
                 download_url = '0', 
                 create_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                modify_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
+                modify_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                report_type="recruiter-report"
             )
         else :
             return MercuryReport(
                 download_url = '0',
                 create_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 modify_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                report_type="recruiter-report"
         )
 
     def testMercuryReport(self):
